@@ -5,7 +5,7 @@ body {
 .main-container {
   display: flex;
   content: ":before";
-  background: rgb(202, 202, 255);
+  background: rgb(177, 203, 238);
   min-width: 300px;
   height: 400px;
   width: 70%;
@@ -25,10 +25,25 @@ ul,
   padding: 0;
 }
 
+.tree-node {
+  margin: 0 10px 0 10px;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */  
+}
+
+.node-name-wrapper {
+  margin: 3px;
+}
 /* Style the caret/arrow */
 .caret {
   cursor: pointer;
   user-select: none; /* Prevent text selection */
+}
+
+.node-item {
+  margin-left: 18px;
 }
 
 /* Create the caret/arrow with a unicode, and style it */

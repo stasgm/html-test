@@ -1,45 +1,77 @@
-const addClass = () => {
+function addClass() {
+  // const elm = this.parentElement.querySelector(".nested");
   this.parentElement.querySelector(".nested").classList.toggle("active");
-  this.classList.toggle("caret-down");
-};
-
-var root = document.getElementById("root");
-/* 
-var toggler = document.getElementsByClassName("caret");
-  for (var i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", addClass);
-} */
+  this.classList.toggle("fa-plus-square");
+  this.classList.toggle("fa-minus-square");
+}
 
 const list = [
   {
-    name: "First",
+    name: "1",
     children: [
       {
-        name: "first. first",
+        name: "1.1",
         children: []
       },
       {
-        name: "first. first",
+        name: "1.2",
         children: [
           {
-            name: "f-f-f",
+            name: "1.2.1",
             children: []
           }
         ]
       }
     ]
+  },
+  {
+    name: "2",
+    children: []
   }
 ];
 
-var ul = document.createElement("ul");
+const addChild = (list, parent) => {
+  list.forEach(i => {
+    // Добавляем нод - li
+    const treeNode = document.createElement("li");
+    treeNode.className = "tree-node";
+    parent.appendChild(treeNode);
+
+    // добавляем стрелку (если есть дети)
+    if (i.children && i.children.length > 0) {
+      const icon = document.createElement("i");
+      icon.className = "fa fa-plus-square";
+      icon.onclick = addClass;
+      treeNode.appendChild(icon);
+    }
+    // добавляем чекбокс
+    // добавляем название
+    const spanTextWrapper = document.createElement("span");
+    spanTextWrapper.className = "node-name-wrapper";
+    spanTextWrapper.title = i.name;
+    treeNode.appendChild(spanTextWrapper);
+
+    const spanText = document.createElement("span");
+    i.children && i.children.length > 0
+      ? (spanText.className = "node-name node-group")
+      : (spanText.className = "node-name node-item");
+    spanText.innerText = i.name;
+    treeNode.appendChild(spanText);
+    // добавляем детей (если есть дети)
+    if (i.children && i.children.length > 0) {
+      const nested = document.createElement("ul");
+      nested.className = "nested";
+      treeNode.appendChild(nested);
+
+      addChild(i.children, nested);
+    }
+  });
+};
+
+const root = document.getElementById("root");
+
+const ul = document.createElement("ul");
+ul.id = "myUL";
 root.appendChild(ul);
 
-
-
-list.forEach(i => {
-  const child = document.createElement("li");
-  child.innerText = i.name;
-  ul.appendChild(child);
-  console.log(i.name);
-  
-});
+addChild(list, ul);
