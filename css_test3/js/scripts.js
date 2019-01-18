@@ -48,7 +48,25 @@ const list = [
   },
   {
     name: "2",
-    children: []
+    children: [
+      {
+        name: "2.1",
+        children: []
+      },
+      {
+        name: "2.2",
+        children: [
+          {
+            name: "2.2.1",
+            children: []
+          },
+          {
+            name: "2.2.2",
+            children: []
+          }
+        ]
+      }
+    ]
   }
 ];
 
