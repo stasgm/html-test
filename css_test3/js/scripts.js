@@ -113,7 +113,7 @@ getChildren = (level, num) => {
   const children = [];
 
   const maxChild = (Math.random() * 5 + 1) << 0;
-  if (level < 4) {
+  if (level < 10) {
     for (let i = 0; i < maxChild; i += 1) {
       children.push(getChildren(++level, `${num}.${i + 1}`));
     }
