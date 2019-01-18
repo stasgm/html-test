@@ -5,7 +5,7 @@ function addClass() {
   this.classList.toggle("fa-minus-square");
 }
 
-const list = [
+/* const list = [
   {
     name: "1",
     children: [
@@ -69,7 +69,7 @@ const list = [
     ]
   }
 ];
-
+ */
 const addChild = (list, parent) => {
   list.forEach(i => {
     // Добавляем нод - li
@@ -80,7 +80,7 @@ const addChild = (list, parent) => {
     // добавляем стрелку (если есть дети)
     if (i.children && i.children.length > 0) {
       const icon = document.createElement("i");
-      icon.className = "fa fa-plus-square";
+      icon.className = "fa fa-minus-square";
       icon.onclick = addClass;
       treeNode.appendChild(icon);
     }
@@ -96,17 +96,36 @@ const addChild = (list, parent) => {
       ? (spanText.className = "node-name node-group")
       : (spanText.className = "node-name node-item");
     spanText.innerText = i.name;
-    treeNode.appendChild(spanText);
+    spanTextWrapper.appendChild(spanText);
+
     // добавляем детей (если есть дети)
     if (i.children && i.children.length > 0) {
       const nested = document.createElement("ul");
-      nested.className = "nested";
+      nested.className = "nested active";
       treeNode.appendChild(nested);
 
       addChild(i.children, nested);
     }
   });
 };
+
+getChildren = (level, num) => {
+  const children = [];
+
+  const maxChild = (Math.random() * 5 + 1) << 0;
+  if (level < 10) {
+    for (let i = 0; i < maxChild; i += 1) {
+      children.push(getChildren(++level, `${num}.${i + 1}`));
+    }
+  }
+
+  return {
+    name: `${num}`,
+    children: children
+  };
+};
+
+let list = [getChildren(0, 1)];
 
 const root = document.getElementById("root");
 

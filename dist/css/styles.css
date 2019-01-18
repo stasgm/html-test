@@ -7,7 +7,7 @@ body {
   content: ":before";
   background: rgb(177, 203, 238);
   min-width: 300px;
-  height: 400px;
+  height: auto;
   width: 70%;
   margin: 0 auto;
   flex-wrap: nowrap;
@@ -27,41 +27,28 @@ ul,
 
 .tree-node {
   margin: 0 10px 0 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
   user-select: none; /* Prevent text selection */  
 }
 
 .node-name-wrapper {
-  margin: 3px;
+  margin: 6px;
 }
-/* Style the caret/arrow */
-.caret {
-  cursor: pointer;
-  user-select: none; /* Prevent text selection */
+
+.node-name-wrapper:hover {
+  background-color: cornflowerblue;
 }
 
 .node-item {
-  margin-left: 18px;
-}
-
-/* Create the caret/arrow with a unicode, and style it */
-.caret::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.caret-down::before {
-  transform: rotate(90deg);
+  margin-left: 16px;
 }
 
 /* Hide the nested list */
 .nested {
   display: none;
+  padding-inline-start: 12px;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
