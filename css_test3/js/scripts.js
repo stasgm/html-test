@@ -2,8 +2,8 @@ import { getList } from "./tree-data/world.js";
 
 function addClass() {
   this.parentElement.querySelector(".nested").classList.toggle("active");
-  this.classList.remove("fa-plus-square");
-  this.classList.add("fa-minus-square");
+  this.classList.toggle("fa-plus-square");
+  this.classList.toggle("fa-minus-square");
 }
 
 function ExpandTree() {
