@@ -1,4 +1,4 @@
-import { getList } from "./tree-fata/world.js";
+import { getList } from "./tree-data/world.js";
 
 function addClass() {
   this.parentElement.querySelector(".nested").classList.toggle("active");
