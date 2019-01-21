@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .main-container {
@@ -20,7 +20,7 @@ body {
 
 .content {
   margin: 10px;
-  overflow-y: scroll; 
+  overflow-y: scroll;
   height: 500px;
 }
 
@@ -37,30 +37,14 @@ ul,
 }
 
 .tree-node {
-<<<<<<< HEAD
-  margin: 0 10px 0 10px;
-=======
-  margin: 2px 0 2px 12px;
->>>>>>> ead01cff1e7d21143a2fc024cd42626a45953daa
+  /* margin: 2px 0 2px 12px; */
   font-size: 18px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
-  user-select: none; /* Prevent text selection */  
+  user-select: none; /* Prevent text selection */
 }
 
 .node-name-wrapper {
-<<<<<<< HEAD
-  margin: 6px;
-}
-
-.node-name-wrapper:hover {
-  background-color: cornflowerblue;
-}
-
-.node-item {
-  margin-left: 16px;
-=======
-  margin: 8px;
+  margin: 0px;
 }
 
 .node-name:hover {
@@ -68,18 +52,26 @@ ul,
 }
 
 .node-item {
-  margin-left: 10px;
->>>>>>> ead01cff1e7d21143a2fc024cd42626a45953daa
+  margin-left: 0px;
+}
+
+.icon-space {
+  display: inline-block;
+  width: 16px;
+  margin-right: 5px;  
+}
+.icon-checkbox {
+  margin-right: 5px;
+}
+
+.icon {
+  margin-right: 5px;
 }
 
 /* Hide the nested list */
 .nested {
   display: none;
-<<<<<<< HEAD
-  padding-inline-start: 12px;
-=======
-  padding-inline-start: 10px;
->>>>>>> ead01cff1e7d21143a2fc024cd42626a45953daa
+  padding-inline-start: 21px;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
