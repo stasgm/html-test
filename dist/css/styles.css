@@ -4,6 +4,7 @@ body {
 
 .main-container {
   display: flex;
+  flex-direction: column;
   content: ":before";
   background: rgb(177, 203, 238);
   min-width: 300px;
@@ -11,6 +12,16 @@ body {
   width: 70%;
   margin: 0 auto;
   flex-wrap: nowrap;
+}
+
+.buttons {
+  margin: 10px;
+}
+
+.content {
+  margin: 10px;
+  overflow-y: scroll; 
+  height: 500px;
 }
 
 /* Remove default bullets */
@@ -26,7 +37,11 @@ ul,
 }
 
 .tree-node {
+<<<<<<< HEAD
   margin: 0 10px 0 10px;
+=======
+  margin: 2px 0 2px 12px;
+>>>>>>> ead01cff1e7d21143a2fc024cd42626a45953daa
   font-size: 18px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
@@ -34,6 +49,7 @@ ul,
 }
 
 .node-name-wrapper {
+<<<<<<< HEAD
   margin: 6px;
 }
 
@@ -43,12 +59,27 @@ ul,
 
 .node-item {
   margin-left: 16px;
+=======
+  margin: 8px;
+}
+
+.node-name:hover {
+  background-color: cornflowerblue;
+}
+
+.node-item {
+  margin-left: 10px;
+>>>>>>> ead01cff1e7d21143a2fc024cd42626a45953daa
 }
 
 /* Hide the nested list */
 .nested {
   display: none;
+<<<<<<< HEAD
   padding-inline-start: 12px;
+=======
+  padding-inline-start: 10px;
+>>>>>>> ead01cff1e7d21143a2fc024cd42626a45953daa
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */

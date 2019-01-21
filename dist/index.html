@@ -6,7 +6,7 @@
     <title>The HTML5-CSS Test</title>
     <meta name="description" content="html \ css test" />
     <meta name="author" content="" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/styles.css?v=1.0" />
     <link
       rel="stylesheet"
@@ -17,7 +17,13 @@
   </head>
 
   <body>
-    <div class="main-container" id="root"></div>
-    <script src="js/scripts.js"></script>
+    <div class="main-container" id="root">
+      <div class="buttons">
+        <input type="button" id="expand-tree" value="Раскрыть" />
+        <input type="button" id="collapse-tree" value="Свернуть" />        
+      </div>
+      <div class="content" id="content"></div>
+    </div>
+    <script type="module" src="js/scripts.js"></script>
   </body>
 </html>

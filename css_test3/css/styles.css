@@ -4,6 +4,7 @@ body {
 
 .main-container {
   display: flex;
+  flex-direction: column;
   content: ":before";
   background: rgb(177, 203, 238);
   min-width: 300px;
@@ -11,6 +12,16 @@ body {
   width: 70%;
   margin: 0 auto;
   flex-wrap: nowrap;
+}
+
+.buttons {
+  margin: 10px;
+}
+
+.content {
+  margin: 10px;
+  overflow-y: scroll; 
+  height: 500px;
 }
 
 /* Remove default bullets */
@@ -26,7 +37,7 @@ ul,
 }
 
 .tree-node {
-  margin: 0 10px 0 10px;
+  margin: 2px 0 2px 12px;
   font-size: 18px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
@@ -34,21 +45,21 @@ ul,
 }
 
 .node-name-wrapper {
-  margin: 6px;
+  margin: 8px;
 }
 
-.node-name-wrapper:hover {
+.node-name:hover {
   background-color: cornflowerblue;
 }
 
 .node-item {
-  margin-left: 16px;
+  margin-left: 10px;
 }
 
 /* Hide the nested list */
 .nested {
   display: none;
-  padding-inline-start: 12px;
+  padding-inline-start: 10px;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
