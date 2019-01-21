@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .main-container {
@@ -20,7 +20,7 @@ body {
 
 .content {
   margin: 10px;
-  overflow-y: scroll; 
+  overflow-y: scroll;
   height: 500px;
 }
 
@@ -37,11 +37,10 @@ ul,
 }
 
 .tree-node {
-  margin: 2px 0 2px 12px;
+  /* margin: 2px 0 2px 12px; */
   font-size: 18px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   cursor: pointer;
-  user-select: none; /* Prevent text selection */  
+  user-select: none; /* Prevent text selection */
 }
 
 .node-name-wrapper {
@@ -53,13 +52,24 @@ ul,
 }
 
 .node-item {
-  margin-left: 10px;
+  margin-left: 0px;
+}
+
+.icon-space {
+  width: 16px;
+}
+.icon-checkbox {
+  /* margin-right: 5px;   */
+}
+
+.icon {
+  margin-right: 5px;
 }
 
 /* Hide the nested list */
 .nested {
   display: none;
-  padding-inline-start: 10px;
+  padding-inline-start: 21px;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */

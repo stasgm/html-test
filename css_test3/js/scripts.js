@@ -49,20 +49,32 @@ const addChild = (list, parent) => {
     treeNode.className = "tree-node";
     parent.appendChild(treeNode);
 
-    // добавляем стрелку (если есть дети)
+    
+
+    // добавляем + (если есть дети)
     if (i.children && i.children.length > 0) {
       const icon = document.createElement("i");
-      icon.className = "icon fa fa-plus-square";
+      icon.className = "icon far fa-plus-square";
       icon.onclick = addClass;
       treeNode.appendChild(icon);
+    } else {
+      // Пропуск на месте +
+      const iconSpace = document.createElement("span");
+      iconSpace.className = "icon-space";
+      iconSpace.innerHTML = "&nbsp;";
+      treeNode.appendChild(iconSpace);
     }
     // добавляем чекбокс
+    const iconCheckBox = document.createElement("i");
+    iconCheckBox.className = "icon-checkbox far fa-square";
+    iconCheckBox.onclick = addClass;
+    treeNode.appendChild(iconCheckBox);
     // добавляем название
     const spanTextWrapper = document.createElement("span");
     spanTextWrapper.className = "node-name-wrapper";
     spanTextWrapper.title = i.name;
     treeNode.appendChild(spanTextWrapper);
-
+    //
     const spanText = document.createElement("span");
     i.children && i.children.length > 0
       ? (spanText.className = "node-name node-group")
