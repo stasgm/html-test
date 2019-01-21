@@ -44,7 +44,7 @@ ul,
 }
 
 .node-name-wrapper {
-  margin: 8px;
+  margin: 0px;
 }
 
 .node-name:hover {
@@ -56,10 +56,12 @@ ul,
 }
 
 .icon-space {
+  display: inline-block;
   width: 16px;
+  margin-right: 5px;  
 }
 .icon-checkbox {
-  /* margin-right: 5px;   */
+  margin-right: 5px;
 }
 
 .icon {
