@@ -1,11 +1,6 @@
 import { getList } from "./tree-data/world.js";
 
-function addClass() {
-  this.parentElement.querySelector(".nested").classList.toggle("active");
-  this.classList.toggle("fa-plus-square");
-  this.classList.toggle("fa-minus-square");
-}
-
+// Общие кнопки 
 function ExpandTree() {
   document.querySelectorAll(".nested").forEach(node => {
     if (!node.classList.contains("active")) {
@@ -40,7 +35,20 @@ function collapseTree() {
 document
   .querySelector("#collapse-tree")
   .addEventListener("click", collapseTree);
+  
 document.querySelector("#expand-tree").addEventListener("click", ExpandTree);
+
+// обработка элементов дерева
+function toggleTreeNode() {
+  this.parentElement.querySelector(".nested").classList.toggle("active");
+  this.classList.toggle("fa-plus-square");
+  this.classList.toggle("fa-minus-square");
+}
+
+function setCheckBox() {
+  this.classList.toggle("fa-square");
+  this.classList.toggle("fa-check-square");  
+}
 
 const addChild = (list, parent) => {
   list.forEach(i => {
@@ -48,21 +56,30 @@ const addChild = (list, parent) => {
     const treeNode = document.createElement("li");
     treeNode.className = "tree-node";
     parent.appendChild(treeNode);
-
-    // добавляем стрелку (если есть дети)
+    // добавляем + (если есть дети)
     if (i.children && i.children.length > 0) {
       const icon = document.createElement("i");
-      icon.className = "icon fa fa-plus-square";
-      icon.onclick = addClass;
+      icon.className = "icon far fa-plus-square";
+      icon.onclick = toggleTreeNode;
       treeNode.appendChild(icon);
+    } else {
+      // Пропуск на месте +
+      const iconSpace = document.createElement("span");
+      iconSpace.className = "icon-space";
+      iconSpace.innerHTML = "&nbsp;";
+      treeNode.appendChild(iconSpace);
     }
     // добавляем чекбокс
+    const iconCheckBox = document.createElement("i");
+    iconCheckBox.className = "icon-checkbox far fa-square";
+    iconCheckBox.onclick = setCheckBox;
+    treeNode.appendChild(iconCheckBox);
     // добавляем название
     const spanTextWrapper = document.createElement("span");
     spanTextWrapper.className = "node-name-wrapper";
     spanTextWrapper.title = i.name;
     treeNode.appendChild(spanTextWrapper);
-
+    //
     const spanText = document.createElement("span");
     i.children && i.children.length > 0
       ? (spanText.className = "node-name node-group")
