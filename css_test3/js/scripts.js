@@ -1,6 +1,7 @@
 import { getList } from "./tree-data/world.js";
+import { list as simpleList } from "./tree-data/simple.js";
 
-// Общие кнопки 
+// Общие кнопки
 function ExpandTree() {
   document.querySelectorAll(".nested").forEach(node => {
     if (!node.classList.contains("active")) {
@@ -31,12 +32,61 @@ function collapseTree() {
   });
 }
 
+function loadDataEarth() {
+  const root = document.getElementById("content");
+
+  if (document.getElementById("myUL")) {
+    root.removeChild(document.getElementById("myUL"));
+  }
+
+  const ul = document.createElement("ul");
+  ul.id = "myUL";
+  root.appendChild(ul);
+
+  let list = [];
+
+  getList().then(res => {
+    list = res;
+    addChild(list, ul);
+  });
+}
+
+function loadData(e) {
+  const root = document.getElementById("content");
+
+  if (document.getElementById("myUL")) {
+    root.removeChild(document.getElementById("myUL"));
+  }
+
+  const ul = document.createElement("ul");
+  ul.id = "myUL";
+  root.appendChild(ul);
+
+  switch (e.target.value) {
+    case "1":
+      getList().then(res => {
+        addChild(res, ul);
+      });
+      break;
+    case "2":
+      addChild(simpleList, ul);      
+      break;
+    case "3":
+      addChild([getChildren(0, 1)], ul);      
+      break;
+    default:
+      break;
+  }
+}
+
 // buttons event handlers
 document
   .querySelector("#collapse-tree")
   .addEventListener("click", collapseTree);
-  
+
 document.querySelector("#expand-tree").addEventListener("click", ExpandTree);
+
+document.querySelector("#data-list").addEventListener("change", loadData);
 
 // обработка элементов дерева
 function toggleTreeNode() {
@@ -47,7 +97,12 @@ function toggleTreeNode() {
 
 function setCheckBox() {
   this.classList.toggle("fa-square");
-  this.classList.toggle("fa-check-square");  
+  this.classList.toggle("fa-check-square");
+}
+
+function clickNode(e) {
+  console.log(e.target.textContent);
+  
 }
 
 const addChild = (list, parent) => {
@@ -85,6 +140,7 @@ const addChild = (list, parent) => {
       ? (spanText.className = "node-name node-group")
       : (spanText.className = "node-name node-item");
     spanText.innerText = i.name;
+    spanText.onclick = clickNode;
     spanTextWrapper.appendChild(spanText);
 
     // добавляем детей (если есть дети)
@@ -115,15 +171,4 @@ const getChildren = (level, num) => {
   };
 };
 
-const root = document.getElementById("content");
-
-const ul = document.createElement("ul");
-ul.id = "myUL";
-root.appendChild(ul);
-
-// let list = [getChildren(0, 1)];
-let list = [];
-getList().then(res => {
-  list = res;
-  addChild(list, ul);
-});
+loadDataEarth();
