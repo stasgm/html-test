@@ -6,9 +6,12 @@
     <title>The HTML5-CSS Test</title>
     <meta name="description" content="html \ css test" />
     <meta name="author" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <link rel="stylesheet" href="css/styles.css?v=1.0" />
-    <link rel="stylesheet" href="css/normalize.css" />        
+    <link rel="stylesheet" href="css/normalize.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -21,7 +24,13 @@
     <div class="main-container" id="root">
       <div class="buttons">
         <input type="button" id="expand-tree" value="Раскрыть" />
-        <input type="button" id="collapse-tree" value="Свернуть" />        
+        <input type="button" id="collapse-tree" value="Свернуть" />
+        <label>Данные: </label>
+        <select id="data-list">
+          <option selected value="1">Земля</option>
+          <option value="2">Простой список</option>
+          <option value="3">Динамический список</option>
+        </select>
       </div>
       <div class="content" id="content"></div>
     </div>
