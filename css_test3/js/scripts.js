@@ -157,8 +157,8 @@ const addChild = (list, parent) => {
 const getChildren = (level, num) => {
   const children = [];
 
-  const maxChild = (Math.random() * 5 + 1) << 0;
-  const maxLevel = (Math.random() * 10 + 1) << 0;
+  const maxChild = (Math.random() * 10 + 1) << 0;
+  const maxLevel = (Math.random() * 20 + 1) << 0;
   if (level < maxLevel) {
     for (let i = 0; i < maxChild; i += 1) {
       children.push(getChildren(++level, `${num}.${i + 1}`));

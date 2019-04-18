@@ -37,7 +37,6 @@ ul,
 }
 
 .tree-node {
-  /* margin: 2px 0 2px 12px; */
   font-size: 18px;
   cursor: pointer;
   user-select: none; /* Prevent text selection */
@@ -58,8 +57,9 @@ ul,
 .icon-space {
   display: inline-block;
   width: 16px;
-  margin-right: 5px;  
+  margin-right: 5px;
 }
+
 .icon-checkbox {
   margin-right: 5px;
 }
@@ -71,10 +71,11 @@ ul,
 /* Hide the nested list */
 .nested {
   display: none;
-  padding-inline-start: 21px;
+  padding-inline-start: 12px;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
 .active {
   display: block;
+  transition: max-height 250ms ease-out;
 }
